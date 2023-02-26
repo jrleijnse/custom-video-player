@@ -7,6 +7,7 @@ const volume = document.querySelector('.player__slider[name="volume"]');
 const playbackRate = document.querySelector(
   '.player__slider[name="playbackRate"]'
 );
+const progressBar = document.querySelector(".progress__filled");
 
 const updateButton = function () {
   media.paused ? (playBtn.textContent = "❚ ❚") : (playBtn.textContent = "►");
@@ -28,6 +29,18 @@ const rewind = function () {
   media.currentTime += +rewindBtn.getAttribute("data-skip", "-10");
 };
 
+const handleProgress = function () {
+  progressBar.style.flexBasis = `${
+    (100 / media.duration) * media.currentTime
+  }%`;
+};
+
+const clickProgress = function () {
+  progressBar.style.flexBasis = `${
+    (100 / media.duration) * media.currentTime
+  }%`;
+};
+
 volume.addEventListener("input", function (e) {
   media.volume = e.currentTarget.value;
 });
@@ -42,3 +55,5 @@ videoScreen.addEventListener("click", playVideo);
 videoScreen.addEventListener("keyup", playVideo);
 videoScreen.addEventListener("play", updateButton);
 videoScreen.addEventListener("pause", updateButton);
+videoScreen.addEventListener("timeupdate", handleProgress);
+videoScreen.addEventListener("click", clickProgress);
