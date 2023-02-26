@@ -1,10 +1,8 @@
 const videoScreen = document.querySelector(".viewer");
 const media = document.querySelector("video");
-
 const playBtn = document.querySelector(".player__button.toggle");
 const rewindBtn = document.querySelector('.player__button[data-skip="-10"]');
 const forwardBtn = document.querySelector('.player__button[data-skip="25"]');
-
 const volume = document.querySelector('.player__slider[name="volume"]');
 const playbackRate = document.querySelector(
   '.player__slider[name="playbackRate"]'
@@ -24,12 +22,10 @@ const playVideo = function () {
 
 const forward = function () {
   media.currentTime += +forwardBtn.getAttribute("data-skip", "25");
-  console.log(media.currentTime);
 };
 
 const rewind = function () {
   media.currentTime += +rewindBtn.getAttribute("data-skip", "-10");
-  console.log(media.currentTime);
 };
 
 volume.addEventListener("input", function (e) {
@@ -39,7 +35,6 @@ playbackRate.addEventListener("input", function (e) {
   media.playbackRate = e.currentTarget.value;
 });
 
-// rewindBtn.addEventListener("click", rewind);
 forwardBtn.addEventListener("click", forward);
 rewindBtn.addEventListener("click", rewind);
 playBtn.addEventListener("click", playVideo);
