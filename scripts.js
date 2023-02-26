@@ -33,10 +33,6 @@ const handleProgress = function () {
   progressBar.style.flexBasis = `${(100 / media.duration) * this.currentTime}%`;
 };
 
-const clickProgress = function () {
-  progressBar.style.flexBasis = `${(100 / media.duration) * this.currentTime}%`;
-};
-
 volume.addEventListener("input", function (e) {
   media.volume = e.currentTarget.value;
 });
@@ -52,4 +48,3 @@ videoScreen.addEventListener("keyup", playVideo);
 videoScreen.addEventListener("play", updateButton);
 videoScreen.addEventListener("pause", updateButton);
 videoScreen.addEventListener("timeupdate", handleProgress);
-videoScreen.addEventListener("click", clickProgress);
