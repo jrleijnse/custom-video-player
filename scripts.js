@@ -22,23 +22,19 @@ const playVideo = function () {
 };
 
 const forward = function () {
-  media.currentTime += +forwardBtn.getAttribute("data-skip", "25");
+  media.currentTime += +this.getAttribute("data-skip", "25");
 };
 
 const rewind = function () {
-  media.currentTime += +rewindBtn.getAttribute("data-skip", "-10");
+  media.currentTime += +this.getAttribute("data-skip", "-10");
 };
 
 const handleProgress = function () {
-  progressBar.style.flexBasis = `${
-    (100 / media.duration) * media.currentTime
-  }%`;
+  progressBar.style.flexBasis = `${(100 / media.duration) * this.currentTime}%`;
 };
 
 const clickProgress = function () {
-  progressBar.style.flexBasis = `${
-    (100 / media.duration) * media.currentTime
-  }%`;
+  progressBar.style.flexBasis = `${(100 / media.duration) * this.currentTime}%`;
 };
 
 volume.addEventListener("input", function (e) {
