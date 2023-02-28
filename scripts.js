@@ -64,7 +64,7 @@ const arrowDuration = function (e) {
   }
 };
 
-window.addEventListener("keyup", playVideoSpace);
+window.addEventListener("keydown", playVideoSpace);
 window.addEventListener("keydown", arrowDuration);
 
 videoScreen.addEventListener("click", playVideo);
