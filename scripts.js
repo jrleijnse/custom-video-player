@@ -41,9 +41,9 @@ const skip = function () {
   }
 };
 
-function handleRangeUpdate() {
+const handleRangeUpdate = function () {
   media[this.name] = this.value;
-}
+};
 
 const handleProgress = function () {
   progressBar.style.flexBasis = `${(100 / this.duration) * this.currentTime}%`;
