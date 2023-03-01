@@ -59,6 +59,12 @@ body {
   border-color: #ffc600;
 }
 
+.fullscreen__button {
+  max-width: fit-content;
+  margin-right: 0.6rem;
+  font-size: 1.15rem;
+}
+
 .player__slider {
   width: 10px;
   height: 30px;

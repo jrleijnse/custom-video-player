@@ -4,6 +4,7 @@ const progressBar = document.querySelector(".progress__filled");
 const media = document.querySelector("video");
 const playBtn = document.querySelector(".player__button.toggle");
 const skipButtons = document.querySelectorAll(".player__button[data-skip]");
+const fullscreenButton = document.querySelector(".fullscreen__button");
 // const volume = document.querySelector('.player__slider[name="volume"]');
 // const playbackRate = document.querySelector(
 //   '.player__slider[name="playbackRate"]'
@@ -64,6 +65,10 @@ const arrowDuration = function (e) {
   }
 };
 
+const openFullscreen = function () {
+  media.requestFullscreen();
+};
+
 window.addEventListener("keydown", playVideoSpace);
 window.addEventListener("keydown", arrowDuration);
 
@@ -71,6 +76,7 @@ videoScreen.addEventListener("click", playVideo);
 videoScreen.addEventListener("play", updateButton);
 videoScreen.addEventListener("pause", updateButton);
 videoScreen.addEventListener("timeupdate", handleProgress);
+fullscreenButton.addEventListener("click", openFullscreen);
 
 playBtn.addEventListener("click", playVideo);
 skipButtons.forEach((button) => button.addEventListener("click", skip));
